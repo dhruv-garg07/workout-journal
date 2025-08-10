@@ -8,6 +8,7 @@ load_dotenv()
 DATABASE_URL = (os.getenv("DATABASE_URL") or "").strip()
 
 async def create_pool() -> Optional[asyncpg.Pool]:
+    print("Creating DB pool with URL:", DATABASE_URL)
     if not DATABASE_URL:
         return None
     parsed = urlparse(DATABASE_URL)
